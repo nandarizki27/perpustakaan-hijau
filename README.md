@@ -107,7 +107,7 @@ Server berjalan di: `http://localhost:5173`
 <img width="1920" height="1000" alt="image" src="https://github.com/user-attachments/assets/d435d690-4e30-4bdd-91ef-3d8e5f2e4cc5" />
 </br>
 
-## Tampian Kategoi Buku
+## Tampian Kategori Buku
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7b0fc867-43fe-412e-92d1-5cb96ad1dff9" />
 </br>
 
