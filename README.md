@@ -102,18 +102,22 @@ npm run dev
 Server berjalan di: `http://localhost:5173`
 
 ## 📸 Tampilan : 
-## Tampilan Utama
+##Tampilan Utama
 <img width="1920" height="1000" alt="image" src="https://github.com/user-attachments/assets/d435d690-4e30-4bdd-91ef-3d8e5f2e4cc5" />
 </br>
+
 ## Tampian Kategoi Buku
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7b0fc867-43fe-412e-92d1-5cb96ad1dff9" />
 </br>
+
 ## Tampilan Daftar Buku
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1b689038-d2fa-4d8d-87ca-eee35813e8d8" />
 </br>
+
 ## Tampilan Data Peminjaman Buku
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3d78f8c9-7150-4f5e-ae68-244cde9d3e97" />
 </br>
+
 
 ## 🎥 Video Demo
 
