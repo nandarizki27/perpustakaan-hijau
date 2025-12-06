@@ -5,7 +5,7 @@ Aplikasi web untuk mengelola perpustakaan dengan fitur CRUD categories, books, d
 ## 🚀 Teknologi
 
 ### Backend
-- Laravel 11
+- Laravel 12
 - MySQL
 - Laravel Sanctum (Authentication)
 - REST API
@@ -101,7 +101,10 @@ npm run dev
 
 Server berjalan di: `http://localhost:5173`
 
-## 📸 Screenshot
+## 📸 Tampilan : 
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d435d690-4e30-4bdd-91ef-3d8e5f2e4cc5" />
+
 
 (Tambahkan screenshot aplikasi di sini)
 
