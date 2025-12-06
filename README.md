@@ -60,7 +60,7 @@ php artisan key:generate
 
 5. Setup database di `.env`:
 ```env
-DB_DATABASE=perpustakaan_db
+DB_DATABASE=db_perpustakaan
 DB_USERNAME=root
 DB_PASSWORD=
 ```
@@ -102,7 +102,8 @@ npm run dev
 Server berjalan di: `http://localhost:5173`
 
 ## 📸 Tampilan : 
-##Tampilan Utama
+
+## Tampilan Utama
 <img width="1920" height="1000" alt="image" src="https://github.com/user-attachments/assets/d435d690-4e30-4bdd-91ef-3d8e5f2e4cc5" />
 </br>
 
@@ -117,6 +118,7 @@ Server berjalan di: `http://localhost:5173`
 ## Tampilan Data Peminjaman Buku
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3d78f8c9-7150-4f5e-ae68-244cde9d3e97" />
 </br>
+
 
 
 ## 🎥 Video Demo
