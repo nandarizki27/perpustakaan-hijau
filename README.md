@@ -103,7 +103,7 @@ Server berjalan di: `http://localhost:5173`
 
 ## 📸 Tampilan : 
 
-<img width="1720" height="100" alt="image" src="https://github.com/user-attachments/assets/d435d690-4e30-4bdd-91ef-3d8e5f2e4cc5" />
+<img width="1920" height="1000" alt="image" src="https://github.com/user-attachments/assets/d435d690-4e30-4bdd-91ef-3d8e5f2e4cc5" />
 
 
 (Tambahkan screenshot aplikasi di sini)
@@ -114,9 +114,9 @@ Server berjalan di: `http://localhost:5173`
 
 ## 👨‍💻 Developer
 
-- **Nama:** [Nama Lengkap]
-- **NIM:** [NIM]
-- **Prodi:** [Program Studi]
+- **Nama:** Moh Irsan Nur Khayan
+- **NIM:** G.211.23.0026
+- **Prodi:** Teknik Informatika
 - **Mata Kuliah:** Rekayasa Web
 
 ## 📄 License
