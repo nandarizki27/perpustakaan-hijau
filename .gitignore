@@ -1,0 +1,20 @@
+# Laravel Backend
+perpustakaan-backend/vendor/
+perpustakaan-backend/node_modules/
+perpustakaan-backend/.env
+perpustakaan-backend/storage/*.key
+perpustakaan-backend/storage/app/*
+perpustakaan-backend/storage/framework/cache/*
+perpustakaan-backend/storage/framework/sessions/*
+perpustakaan-backend/storage/framework/views/*
+perpustakaan-backend/storage/logs/*
+
+# React Frontend
+perpustakaan-frontend/node_modules/
+perpustakaan-frontend/dist/
+perpustakaan-frontend/.env
+perpustakaan-frontend/.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
