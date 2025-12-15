@@ -55,7 +55,6 @@ const Borrowings = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     try {
       if (editingId) {
         await api.put(`/borrowings/${editingId}`, formData);
@@ -64,7 +63,6 @@ const Borrowings = () => {
         await api.post('/borrowings', formData);
         alert('Peminjaman berhasil ditambahkan');
       }
-      
       setFormData({
         book_id: '',
         borrower_name: '',
@@ -112,7 +110,7 @@ const Borrowings = () => {
 
   const handleDelete = async (id) => {
     if (!window.confirm('Yakin ingin menghapus data peminjaman ini?')) return;
-    
+
     try {
       await api.delete(`/borrowings/${id}`);
       alert('Data peminjaman berhasil dihapus');
@@ -139,195 +137,248 @@ const Borrowings = () => {
 
   const getStatusBadge = (status) => {
     if (status === 'borrowed') {
-      return <span className="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm">Dipinjam</span>;
+      return (
+        <span className="badge bg-warning text-dark">
+          <i className="bi bi-hourglass-split me-1"></i>
+          Dipinjam
+        </span>
+      );
     }
-    return <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm">Dikembalikan</span>;
+    return (
+      <span className="badge bg-success">
+        <i className="bi bi-check-circle me-1"></i>
+        Dikembalikan
+      </span>
+    );
   };
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-100">
+      <div className="min-vh-100 bg-light">
         <Navbar />
-        <div className="container mx-auto px-4 py-8">
-          <p className="text-center">Loading...</p>
+        <div className="container py-5">
+          <div className="text-center">
+            <div className="spinner-border text-primary" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-vh-100 bg-light">
       <Navbar />
-      
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold">Data Peminjaman</h1>
+
+      <div className="container py-4">
+        <div className="d-flex justify-content-between align-items-center mb-4">
+          <h1 className="fw-bold">
+            <i className="bi bi-clipboard-check-fill text-warning me-2"></i>
+            Data Peminjaman
+          </h1>
           <button
             onClick={() => setShowForm(!showForm)}
-            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+            className={`btn ${showForm ? 'btn-secondary' : 'btn-warning'}`}
           >
-            {showForm ? 'Tutup Form' : '+ Tambah Peminjaman'}
+            <i className={`bi ${showForm ? 'bi-x-circle' : 'bi-plus-circle'} me-2`}></i>
+            {showForm ? 'Tutup Form' : 'Tambah Peminjaman'}
           </button>
         </div>
 
         {showForm && (
-          <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-            <h2 className="text-xl font-bold mb-4">
-              {editingId ? 'Edit Peminjaman' : 'Tambah Peminjaman Baru'}
-            </h2>
-            <form onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-gray-700 mb-2">Buku</label>
-                  <select
-                    value={formData.book_id}
-                    onChange={(e) => setFormData({ ...formData, book_id: e.target.value })}
-                    className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    required
-                    disabled={editingId}
-                  >
-                    <option value="">Pilih Buku</option>
-                    {books.map((book) => (
-                      <option key={book.id} value={book.id}>
-                        {book.title} (Stok: {book.stock})
-                      </option>
-                    ))}
-                  </select>
+          <div className="card shadow-sm mb-4 fade-in">
+            <div className="card-header bg-warning">
+              <h5 className="mb-0">
+                <i className="bi bi-pencil-square me-2"></i>
+                {editingId ? 'Edit Peminjaman' : 'Tambah Peminjaman Baru'}
+              </h5>
+            </div>
+            <div className="card-body">
+              <form onSubmit={handleSubmit}>
+                <div className="row g-3">
+                  <div className="col-md-6">
+                    <label htmlFor="book_id" className="form-label fw-semibold">
+                      <i className="bi bi-book me-2"></i>Buku
+                    </label>
+                    <select
+                      className="form-select"
+                      id="book_id"
+                      value={formData.book_id}
+                      onChange={(e) => setFormData({ ...formData, book_id: e.target.value })}
+                      required
+                      disabled={editingId}
+                    >
+                      <option value="">Pilih Buku</option>
+                      {books.map((book) => (
+                        <option key={book.id} value={book.id}>
+                          {book.title} (Stok: {book.stock})
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="col-md-6">
+                    <label htmlFor="borrower_name" className="form-label fw-semibold">
+                      <i className="bi bi-person me-2"></i>Nama Peminjam
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="borrower_name"
+                      value={formData.borrower_name}
+                      onChange={(e) => setFormData({ ...formData, borrower_name: e.target.value })}
+                      placeholder="Masukkan nama peminjam"
+                      required
+                    />
+                  </div>
+
+                  <div className="col-md-6">
+                    <label htmlFor="borrower_email" className="form-label fw-semibold">
+                      <i className="bi bi-envelope me-2"></i>Email Peminjam
+                    </label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="borrower_email"
+                      value={formData.borrower_email}
+                      onChange={(e) => setFormData({ ...formData, borrower_email: e.target.value })}
+                      placeholder="Masukkan email peminjam"
+                      required
+                    />
+                  </div>
+
+                  <div className="col-md-6">
+                    <label htmlFor="borrow_date" className="form-label fw-semibold">
+                      <i className="bi bi-calendar-event me-2"></i>Tanggal Pinjam
+                    </label>
+                    <input
+                      type="date"
+                      className="form-control"
+                      id="borrow_date"
+                      value={formData.borrow_date}
+                      onChange={(e) => setFormData({ ...formData, borrow_date: e.target.value })}
+                      required
+                    />
+                  </div>
+
+                  {editingId && (
+                    <>
+                      <div className="col-md-6">
+                        <label htmlFor="return_date" className="form-label fw-semibold">
+                          <i className="bi bi-calendar-check me-2"></i>Tanggal Kembali
+                        </label>
+                        <input
+                          type="date"
+                          className="form-control"
+                          id="return_date"
+                          value={formData.return_date}
+                          onChange={(e) => setFormData({ ...formData, return_date: e.target.value })}
+                        />
+                      </div>
+
+                      <div className="col-md-6">
+                        <label htmlFor="status" className="form-label fw-semibold">
+                          <i className="bi bi-info-circle me-2"></i>Status
+                        </label>
+                        <select
+                          className="form-select"
+                          id="status"
+                          value={formData.status}
+                          onChange={(e) => setFormData({ ...formData, status: e.target.value })}
+                          required
+                        >
+                          <option value="borrowed">Dipinjam</option>
+                          <option value="returned">Dikembalikan</option>
+                        </select>
+                      </div>
+                    </>
+                  )}
                 </div>
 
-                <div>
-                  <label className="block text-gray-700 mb-2">Nama Peminjam</label>
-                  <input
-                    type="text"
-                    value={formData.borrower_name}
-                    onChange={(e) => setFormData({ ...formData, borrower_name: e.target.value })}
-                    className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    required
-                  />
+                <div className="d-flex gap-2 mt-4">
+                  <button type="submit" className="btn btn-warning">
+                    <i className="bi bi-check-circle me-2"></i>
+                    {editingId ? 'Update' : 'Simpan'}
+                  </button>
+                  <button type="button" onClick={handleCancel} className="btn btn-secondary">
+                    <i className="bi bi-x-circle me-2"></i>
+                    Batal
+                  </button>
                 </div>
-
-                <div>
-                  <label className="block text-gray-700 mb-2">Email Peminjam</label>
-                  <input
-                    type="email"
-                    value={formData.borrower_email}
-                    onChange={(e) => setFormData({ ...formData, borrower_email: e.target.value })}
-                    className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-gray-700 mb-2">Tanggal Pinjam</label>
-                  <input
-                    type="date"
-                    value={formData.borrow_date}
-                    onChange={(e) => setFormData({ ...formData, borrow_date: e.target.value })}
-                    className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    required
-                  />
-                </div>
-
-                {editingId && (
-                  <>
-                    <div>
-                      <label className="block text-gray-700 mb-2">Tanggal Kembali</label>
-                      <input
-                        type="date"
-                        value={formData.return_date}
-                        onChange={(e) => setFormData({ ...formData, return_date: e.target.value })}
-                        className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-gray-700 mb-2">Status</label>
-                      <select
-                        value={formData.status}
-                        onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                        className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        required
-                      >
-                        <option value="borrowed">Dipinjam</option>
-                        <option value="returned">Dikembalikan</option>
-                      </select>
-                    </div>
-                  </>
-                )}
-              </div>
-
-              <div className="flex space-x-2 mt-4">
-                <button
-                  type="submit"
-                  className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-                >
-                  {editingId ? 'Update' : 'Simpan'}
-                </button>
-                <button
-                  type="button"
-                  onClick={handleCancel}
-                  className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
-                >
-                  Batal
-                </button>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         )}
 
-        <div className="bg-white rounded-lg shadow-md overflow-x-auto">
-          <table className="w-full">
-            <thead className="bg-gray-200">
-              <tr>
-                <th className="px-4 py-3 text-left">ID</th>
-                <th className="px-4 py-3 text-left">Buku</th>
-                <th className="px-4 py-3 text-left">Peminjam</th>
-                <th className="px-4 py-3 text-left">Email</th>
-                <th className="px-4 py-3 text-left">Tgl Pinjam</th>
-                <th className="px-4 py-3 text-left">Tgl Kembali</th>
-                <th className="px-4 py-3 text-center">Status</th>
-                <th className="px-4 py-3 text-center">Aksi</th>
-              </tr>
-            </thead>
-            <tbody>
-              {borrowings.length === 0 ? (
-                <tr>
-                  <td colSpan="8" className="px-4 py-8 text-center text-gray-500">
-                    Belum ada data peminjaman
-                  </td>
-                </tr>
-              ) : (
-                borrowings.map((borrowing) => (
-                  <tr key={borrowing.id} className="border-b hover:bg-gray-50">
-                    <td className="px-4 py-3">{borrowing.id}</td>
-                    <td className="px-4 py-3 font-semibold">{borrowing.book?.title}</td>
-                    <td className="px-4 py-3">{borrowing.borrower_name}</td>
-                    <td className="px-4 py-3">{borrowing.borrower_email}</td>
-                    <td className="px-4 py-3">{formatDate(borrowing.borrow_date)}</td>
-                    <td className="px-4 py-3">{formatDate(borrowing.return_date)}</td>
-                    <td className="px-4 py-3 text-center">
-                      {getStatusBadge(borrowing.status)}
-                    </td>
-                    <td className="px-4 py-3 text-center">
-                      <button
-                        onClick={() => handleEdit(borrowing)}
-                        className="bg-yellow-500 text-white px-3 py-1 rounded mr-2 hover:bg-yellow-600"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => handleDelete(borrowing.id)}
-                        className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-                      >
-                        Hapus
-                      </button>
-                    </td>
+        <div className="card shadow-sm">
+          <div className="card-body p-0">
+            <div className="table-responsive">
+              <table className="table table-hover mb-0">
+                <thead>
+                  <tr>
+                    <th style={{ width: '60px' }}>ID</th>
+                    <th>Buku</th>
+                    <th>Peminjam</th>
+                    <th>Email</th>
+                    <th style={{ width: '130px' }}>Tgl Pinjam</th>
+                    <th style={{ width: '130px' }}>Tgl Kembali</th>
+                    <th style={{ width: '140px' }} className="text-center">Status</th>
+                    <th style={{ width: '200px' }} className="text-center">Aksi</th>
                   </tr>
-                ))
-              )}
-            </tbody>
-          </table>
+                </thead>
+                <tbody>
+                  {borrowings.length === 0 ? (
+                    <tr>
+                      <td colSpan="8" className="text-center py-5 text-muted">
+                        <i className="bi bi-inbox fs-1 d-block mb-3"></i>
+                        <p className="mb-0">Belum ada data peminjaman</p>
+                      </td>
+                    </tr>
+                  ) : (
+                    borrowings.map((borrowing) => (
+                      <tr key={borrowing.id}>
+                        <td className="fw-semibold">{borrowing.id}</td>
+                        <td>
+                          <span className="fw-bold text-primary">{borrowing.book?.title}</span>
+                        </td>
+                        <td>{borrowing.borrower_name}</td>
+                        <td><small className="text-muted">{borrowing.borrower_email}</small></td>
+                        <td>{formatDate(borrowing.borrow_date)}</td>
+                        <td>{formatDate(borrowing.return_date)}</td>
+                        <td className="text-center">{getStatusBadge(borrowing.status)}</td>
+                        <td className="text-center">
+                          <div className="btn-group" role="group">
+                            <button
+                              onClick={() => handleEdit(borrowing)}
+                              className="btn btn-warning btn-sm"
+                              title="Edit"
+                            >
+                              <i className="bi bi-pencil"></i>
+                            </button>
+                            <button
+                              onClick={() => handleDelete(borrowing.id)}
+                              className="btn btn-danger btn-sm"
+                              title="Hapus"
+                            >
+                              <i className="bi bi-trash"></i>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
+
+        {borrowings.length > 0 && (
+          <div className="mt-3 text-muted text-end">
+            <small>Total: {borrowings.length} peminjaman</small>
+          </div>
+        )}
       </div>
     </div>
   );

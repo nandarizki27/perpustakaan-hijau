@@ -1,6 +1,11 @@
-# 📚 Sistem Manajemen Perpustakaan
+Tentu, saya akan memodifikasi file `README` Anda. Saya akan menghapus semua referensi tentang Tailwind CSS dan fokus langsung pada konfigurasi dan implementasi Bootstrap 5, menjadikannya dokumen yang lebih ringkas dan *straight-to-the-point* untuk proyek Sistem Manajemen Perpustakaan versi Bootstrap 5 Anda.
 
-Aplikasi web untuk mengelola perpustakaan dengan fitur CRUD categories, books, dan borrowings.
+Berikut adalah versi `README` yang sudah diperbarui:
+
+```markdown
+# 📚 Sistem Manajemen Perpustakaan (Bootstrap 5 Version)
+
+Aplikasi web untuk mengelola perpustakaan dengan fitur CRUD categories, books, dan borrowings menggunakan **Bootstrap 5**.
 
 ## 🚀 Teknologi
 
@@ -14,14 +19,17 @@ Aplikasi web untuk mengelola perpustakaan dengan fitur CRUD categories, books, d
 - React JS 18
 - React Router DOM
 - Axios
-- Tailwind CSS
+- **Bootstrap 5.3.2 ✨**
+- **Bootstrap Icons**
 
 ## 📁 Struktur Project
 ```
+
 sistem-manajemen-perpustakaan/
-├── perpustakaan-backend/    # Laravel REST API
-└── perpustakaan-frontend/   # React Application
-```
+├── perpustakaan-backend/    \# Laravel REST API
+└── perpustakaan-frontend/   \# React Application (Bootstrap 5)
+
+````
 
 ## ✨ Fitur
 
@@ -32,7 +40,9 @@ sistem-manajemen-perpustakaan/
 - ✅ Relasi antar tabel
 - ✅ Automatic stock management
 - ✅ Token-based authentication
-- ✅ Responsive design
+- ✅ **Responsive design** menggunakan Bootstrap Grid System.
+- ✅ **Modern UI** dengan Bootstrap Icons dan Custom Theming.
+- ✅ **Smooth animations & transitions** (Menggunakan Custom CSS).
 
 ## 🛠️ Cara Menjalankan Project
 
@@ -41,97 +51,143 @@ sistem-manajemen-perpustakaan/
 1. Masuk ke folder backend:
 ```bash
 cd perpustakaan-backend
-```
+````
 
-2. Install dependencies:
+2.  Install dependencies:
+
+<!-- end list -->
+
 ```bash
 composer install
 ```
 
-3. Copy file .env:
+3.  Copy file .env:
+
+<!-- end list -->
+
 ```bash
 cp .env.example .env
 ```
 
-4. Generate key:
+4.  Generate key:
+
+<!-- end list -->
+
 ```bash
 php artisan key:generate
 ```
 
-5. Setup database di `.env`:
+5.  Setup database di `.env`:
+
+<!-- end list -->
+
 ```env
 DB_DATABASE=db_perpustakaan
 DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-6. Migrate database:
+6.  Migrate database:
+
+<!-- end list -->
+
 ```bash
 php artisan migrate
 ```
 
-7. Install Sanctum:
+7.  Install Sanctum:
+
+<!-- end list -->
+
 ```bash
 php artisan install:api
 ```
 
-8. Jalankan server:
+8.  Jalankan server:
+
+<!-- end list -->
+
 ```bash
 php artisan serve
 ```
 
 Server berjalan di: `http://127.0.0.1:8000`
 
-### Frontend (React)
+### Frontend (React + Bootstrap 5)
 
-1. Masuk ke folder frontend:
+1.  Masuk ke folder frontend:
+
+<!-- end list -->
+
 ```bash
 cd perpustakaan-frontend
 ```
 
-2. Install dependencies:
+2.  Install dependencies:
+
+<!-- end list -->
+
 ```bash
 npm install
+# Packages utama yang diinstal: bootstrap@^5.3.2 dan bootstrap-icons@^1.11.3
 ```
 
-3. Jalankan development server:
+> **Catatan:** Pastikan `bootstrap` dan `bootstrap-icons` telah diinstal di `package.json`.
+
+3.  Jalankan development server:
+
+<!-- end list -->
+
 ```bash
 npm run dev
 ```
 
 Server berjalan di: `http://localhost:5173`
 
-## 📸 Tampilan : 
+-----
+
+## 🎨 Detail Implementasi Bootstrap 5
+
+Proyek ini sepenuhnya memanfaatkan fitur Bootstrap 5, termasuk:
+
+  * **Layout:** Container dan Grid System (`row`, `col`) untuk desain responsif.
+  * **Komponen:** Navbar, Cards, Forms, Tables, Alerts, dan Buttons.
+  * **Kustomisasi:** Skema warna kustom diterapkan melalui penimpaan (override) **CSS Custom Properties** di file `index.css`.
+
+-----
+
+## 📸 Tampilan :
 
 ## Tampilan Utama
-<img width="1920" height="1000" alt="image" src="https://github.com/user-attachments/assets/d435d690-4e30-4bdd-91ef-3d8e5f2e4cc5" />
-</br>
+
+\<img width="1920" height="1000" alt="image" src="screenshoot/beranda.png"\>
+\</br\>
 
 ## Tampian Kategori Buku
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7b0fc867-43fe-412e-92d1-5cb96ad1dff9" />
-</br>
+
+\<img width="1920" height="1080" alt="image" src="screenshoot/kategori.png"\>
+\</br\>
 
 ## Tampilan Daftar Buku
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1b689038-d2fa-4d8d-87ca-eee35813e8d8" />
-</br>
+
+\<img width="1920" height="1080" alt="image" src="screenshoot/buku.png"\>
+\</br\>
 
 ## Tampilan Data Peminjaman Buku
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3d78f8c9-7150-4f5e-ae68-244cde9d3e97" />
-</br>
 
-
-
-## 🎥 Video Demo
-
-[Link YouTube Video Presentasi]
+\<img width="1920" height="1080" alt="image" src="screenshoot/peminjam.png"\>
+\</br\>
 
 ## 👨‍💻 Developer
 
-- **Nama:** Moh Irsan Nur Khayan
-- **NIM:** G.211.23.0026
-- **Prodi:** Teknik Informatika
-- **Mata Kuliah:** Rekayasa Web
+  - **Nama:** Satrio Aji Atmojo
+  - **NIM:** G.211.23.0054
+  - **Prodi:** Teknik Informatika
+  - **Mata Kuliah:** Rekayasa Web
 
 ## 📄 License
 
 This project is for educational purposes.
+
+```
+```

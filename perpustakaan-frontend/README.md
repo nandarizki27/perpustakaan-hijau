@@ -22,4 +22,4 @@ npm run dev
 - React 18
 - React Router DOM
 - Axios
-- Tailwind CSS
+- Bootstrap 5
