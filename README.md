@@ -1,8 +1,3 @@
-Tentu, saya akan memodifikasi file `README` Anda. Saya akan menghapus semua referensi tentang Tailwind CSS dan fokus langsung pada konfigurasi dan implementasi Bootstrap 5, menjadikannya dokumen yang lebih ringkas dan _straight-to-the-point_ untuk proyek Sistem Manajemen Perpustakaan versi Bootstrap 5 Anda.
-
-Berikut adalah versi `README` yang sudah diperbarui:
-
-```markdown
 # 📚 Sistem Manajemen Perpustakaan (Bootstrap 5 Version)
 
 Aplikasi web untuk mengelola perpustakaan dengan fitur CRUD categories, books, dan borrowings menggunakan **Bootstrap 5**.
