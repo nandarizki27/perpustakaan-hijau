@@ -1,4 +1,4 @@
-Tentu, saya akan memodifikasi file `README` Anda. Saya akan menghapus semua referensi tentang Tailwind CSS dan fokus langsung pada konfigurasi dan implementasi Bootstrap 5, menjadikannya dokumen yang lebih ringkas dan *straight-to-the-point* untuk proyek Sistem Manajemen Perpustakaan versi Bootstrap 5 Anda.
+Tentu, saya akan memodifikasi file `README` Anda. Saya akan menghapus semua referensi tentang Tailwind CSS dan fokus langsung pada konfigurasi dan implementasi Bootstrap 5, menjadikannya dokumen yang lebih ringkas dan _straight-to-the-point_ untuk proyek Sistem Manajemen Perpustakaan versi Bootstrap 5 Anda.
 
 Berikut adalah versi `README` yang sudah diperbarui:
 
@@ -10,12 +10,14 @@ Aplikasi web untuk mengelola perpustakaan dengan fitur CRUD categories, books, d
 ## 🚀 Teknologi
 
 ### Backend
+
 - Laravel 12
 - MySQL
 - Laravel Sanctum (Authentication)
 - REST API
 
 ### Frontend
+
 - React JS 18
 - React Router DOM
 - Axios
@@ -26,8 +28,8 @@ Aplikasi web untuk mengelola perpustakaan dengan fitur CRUD categories, books, d
 ```
 
 sistem-manajemen-perpustakaan/
-├── perpustakaan-backend/    \# Laravel REST API
-└── perpustakaan-frontend/   \# React Application (Bootstrap 5)
+├── perpustakaan-backend/ \# Laravel REST API
+└── perpustakaan-frontend/ \# React Application (Bootstrap 5)
 
 ````
 
@@ -144,50 +146,47 @@ npm run dev
 
 Server berjalan di: `http://localhost:5173`
 
------
+---
 
 ## 🎨 Detail Implementasi Bootstrap 5
 
 Proyek ini sepenuhnya memanfaatkan fitur Bootstrap 5, termasuk:
 
-  * **Layout:** Container dan Grid System (`row`, `col`) untuk desain responsif.
-  * **Komponen:** Navbar, Cards, Forms, Tables, Alerts, dan Buttons.
-  * **Kustomisasi:** Skema warna kustom diterapkan melalui penimpaan (override) **CSS Custom Properties** di file `index.css`.
+- **Layout:** Container dan Grid System (`row`, `col`) untuk desain responsif.
+- **Komponen:** Navbar, Cards, Forms, Tables, Alerts, dan Buttons.
+- **Kustomisasi:** Skema warna kustom diterapkan melalui penimpaan (override) **CSS Custom Properties** di file `index.css`.
 
------
+---
 
 ## 📸 Tampilan :
 
 ## Tampilan Utama
 
-\<img width="1920" height="1000" alt="image" src="screenshoot/beranda.png"\>
-\</br\>
+![Tampilan Beranda Aplikasi](screenshoot/beranda.png)
 
 ## Tampian Kategori Buku
 
-\<img width="1920" height="1080" alt="image" src="screenshoot/kategori.png"\>
-\</br\>
+![Tampilan Kategori Buku](screenshoot/kategori.png)
 
 ## Tampilan Daftar Buku
 
-\<img width="1920" height="1080" alt="image" src="screenshoot/buku.png"\>
-\</br\>
+![Tampilan Daftar Buku](screenshoot/buku.png)
 
 ## Tampilan Data Peminjaman Buku
 
-\<img width="1920" height="1080" alt="image" src="screenshoot/peminjam.png"\>
-\</br\>
+![Tampilan Data Peminjaman](screenshoot/peminjam.png)
 
 ## 👨‍💻 Developer
 
-  - **Nama:** Satrio Aji Atmojo
-  - **NIM:** G.211.23.0054
-  - **Prodi:** Teknik Informatika
-  - **Mata Kuliah:** Rekayasa Web
+- **Nama:** Satrio Aji Atmojo
+- **NIM:** G.211.23.0054
+- **Prodi:** Teknik Informatika
+- **Mata Kuliah:** Rekayasa Web
 
 ## 📄 License
 
 This project is for educational purposes.
 
 ```
+
 ```
